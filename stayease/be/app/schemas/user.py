@@ -12,6 +12,11 @@ class UserCreate(UserBase):
 
 class UserOut(UserBase):
     id: int
-    
+
     class Config:
         from_attributes = True
+
+# ESTO ES LO QUE NECESITA EL __INIT__.PY PARA NO DAR ERROR
+class LoginRequest(BaseModel):
+    username: str
+    password: str

@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .routers import auth, rooms, guests, reservations, ws
+from .routers import auth, rooms, guest, reservation, ws
 from .database import engine, Base 
 
 
@@ -20,8 +20,8 @@ app.add_middleware(
 # Incluir todos los routers
 app.include_router(auth.router)
 app.include_router(rooms.router)
-app.include_router(guests.router)
-app.include_router(reservations.router)
+app.include_router(guest.router)
+app.include_router(reservation.router)
 app.include_router(ws.router)
 
 @app.get("/health")

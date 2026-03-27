@@ -1,7 +1,6 @@
 from sqlalchemy import Column, Integer, String, Enum, DateTime
 from sqlalchemy.sql import func
 from ..database import Base
-from pydantic import BaseModel, EmailStr
 
 class User(Base):
     __tablename__ = "users"
@@ -14,7 +13,3 @@ class User(Base):
     role = Column(Enum("staff", "manager"), default="staff")
     created_at = Column(DateTime, server_default=func.now())
     updated_at = Column(DateTime, server_default=func.now(), onupdate=func.now())
-
-class LoginRequest(BaseModel):
-    username: str
-    password: str
